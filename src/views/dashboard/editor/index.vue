@@ -5,29 +5,30 @@
         Your roles:
         <span v-for="item in roles" :key="item" class="pan-info-roles">{{ item }}</span>
       </pan-thumb>
-      <github-corner style="position: absolute; top: 0px; border: 0; right: 0;" />
+      <!-- <github-corner style="position: absolute; top: 0px; border: 0; right: 0;" /> -->
       <div class="info-container">
         <span class="display_name">{{ name }}</span>
         <span style="font-size:20px;padding-top:20px;display:inline-block;">Editor's Dashboard</span>
       </div>
     </div>
-    <div>
+    <!-- <div>
       <img :src="emptyGif" class="emptyGif">
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import PanThumb from '@/components/PanThumb'
-import GithubCorner from '@/components/GithubCorner'
+// import GithubCorner from '@/components/GithubCorner'
 
 export default {
   name: 'DashboardEditor',
-  components: { PanThumb, GithubCorner },
+  //  GithubCorner
+  components: { PanThumb },
   data() {
     return {
-      emptyGif: 'https://wpimg.wallstcn.com/0e03b7da-db9e-4819-ba10-9016ddfdaed3'
+      emptyGif: 'https://acszdxt-yygh.oss-cn-hangzhou.aliyuncs.com/dashboard/dog-1.gif'
     }
   },
   computed: {
@@ -48,7 +49,13 @@ export default {
   }
 
   .dashboard-editor-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
     background-color: #e3e3e3;
+    background-image: url('https://acszdxt-yygh.oss-cn-hangzhou.aliyuncs.com/dashboard/dog-1.gif');
     min-height: 100vh;
     padding: 50px 60px 0px;
     .pan-info-roles {

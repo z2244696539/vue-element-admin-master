@@ -29,6 +29,15 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
+  // devServer: {
+  //   port: port,
+  //   open: true,
+  //   overlay: {
+  //     warnings: false,
+  //     errors: true
+  //   },
+  //   before: require('./mock/mock-server.js')
+  // },
   devServer: {
     port: port,
     open: true,
@@ -36,7 +45,17 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
+    // before: require('./mock/mock-server.js')
+    // 代理配置
+    proxy: {
+      [process.env.VUE_APP_BASE_API]: {
+        target: 'http://localhost:8203/admin',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/admin': ''
+        }
+      }
+    }
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
